@@ -29,12 +29,22 @@ scripts/          # Build/maintenance scripts
 ```
 
 ## Git Workflow
-- **Always create a new branch for every feature or fix** — never commit directly to `main`.
-  ```
-  git checkout -b feature/<short-description>
-  ```
+
+### When to commit directly to `main`
+- Major architectural changes (new stores, new service layers, dependency upgrades)
+- New full pages / screens (e.g. building out the Cart screen, Search screen)
+
+### When to create a branch first
+- Small, isolated features (a single new component, a helper function)
+- Specific bug fixes
+- Experimental UI changes that may be discarded
+
+```
+git checkout -b feature/<short-description>   # for branches
+git checkout -b fix/<short-description>
+```
+
 - Keep branch names lowercase with hyphens: `feature/product-card`, `fix/cart-total-bug`.
-- Merge via PR (or `git merge --no-ff`) so history stays readable.
 - Both collaborators should pull `main` before branching to avoid conflicts.
 
 ## Code Style
